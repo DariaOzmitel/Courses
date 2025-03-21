@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.graphics.Color
-import com.example.ui.screen.OnboardingScreen
+import com.example.ui.screen.EntryScreen
 import com.example.ui.theme.CoursesTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoursesTheme {
                 Scaffold(containerColor = Color.Black) { innerPadding ->
-                    OnboardingScreen(
+                    EntryScreen(
                         innerPadding = innerPadding
                     )
                 }

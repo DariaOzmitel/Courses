@@ -2,4 +2,12 @@
 <resources>
     <string name="resume">Продолжить</string>
     <string name="onboarding_title">Тысячи курсов\nв одном месте</string>
+    <string name="email_example">example@gmail.com</string>
+    <string name="password_hint">Введите пароль</string>
+    <string name="entry">Вход</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="no_account">Нет аккаунта? </string>
+    <string name="log_in">Регистрация</string>
+    <string name="forgot_password">Забыл пароль</string>
 </resources>

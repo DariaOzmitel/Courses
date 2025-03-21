@@ -1,5 +1,7 @@
 package com.example.ui.elements.button
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -7,37 +9,39 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.ui.R
-import com.example.ui.elements.text.TextButton
 import com.example.ui.theme.CoursesTheme
 
 @Composable
-internal fun GreenButton(
+internal fun ButtonVk(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    text: String,
     onClick: () -> Unit = {},
 ) {
     Button(
         onClick = onClick, modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(
+                color = CoursesTheme.colors.vkColor,
+                shape = RoundedCornerShape(30.dp)
+            ),
         enabled = enabled,
-        shape = RoundedCornerShape(30.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = CoursesTheme.colors.green,
+            containerColor = Color.Transparent,
             contentColor = CoursesTheme.colors.white,
         ),
-        contentPadding = PaddingValues(vertical = 16.dp)
+        contentPadding = PaddingValues(vertical = 0.dp)
     ) {
-        TextButton(text = text)
+        Image(painter = painterResource(id = R.drawable.vk), contentDescription = "")
     }
 }
 
 @Preview
 @Composable
-private fun BigGreenButtonPreview() {
-    GreenButton(text = stringResource(id = R.string.resume))
+private fun ButtonVkPreview() {
+    ButtonVk()
 }
