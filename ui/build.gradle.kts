@@ -44,7 +44,9 @@ dependencies {
     implementation(libs.androidx.runtime.android)
     implementation(libs.androidx.ui.text.android)
     implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.ui.tooling.preview.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    debugImplementation(libs.ui.tooling)
 }
