@@ -10,4 +10,6 @@
     <string name="no_account">Нет аккаунта? </string>
     <string name="log_in">Регистрация</string>
     <string name="forgot_password">Забыл пароль</string>
+    <string name="price">%s ₽</string>
+    <string name="more">Подробнее</string>
 </resources>
