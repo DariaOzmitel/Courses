@@ -115,10 +115,8 @@ internal fun CourseCard(
                         contentDescription = ""
                     )
                 }
-
             }
         }
-
     }
 }
 

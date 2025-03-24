@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.ui.R
-import com.example.ui.elements.text.TextButton
+import com.example.ui.elements.text.TextForButton
 import com.example.ui.theme.CoursesTheme
 
 @Composable
@@ -32,7 +32,7 @@ internal fun GreenButton(
         ),
         contentPadding = PaddingValues(vertical = 16.dp)
     ) {
-        TextButton(text = text)
+        TextForButton(text = text)
     }
 }
 

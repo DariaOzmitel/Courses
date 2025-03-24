@@ -21,3 +21,5 @@ val mockCourseUi = CourseUi(
     hasLike = false,
     publishDate = "2024-02-02"
 )
+
+val mockCourseUiList = listOf(mockCourseUi, mockCourseUi, mockCourseUi, mockCourseUi)

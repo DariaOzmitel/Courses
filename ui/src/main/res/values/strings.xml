@@ -12,4 +12,6 @@
     <string name="forgot_password">Забыл пароль</string>
     <string name="price">%s ₽</string>
     <string name="more">Подробнее</string>
+    <string name="search_text_field_hint">Search courses…</string>
+    <string name="for_data_publishing">По дате добавления</string>
 </resources>

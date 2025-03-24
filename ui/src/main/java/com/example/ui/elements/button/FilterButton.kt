@@ -17,38 +17,27 @@ import com.example.ui.theme.CoursesTheme
 
 
 @Composable
-internal fun BookmarkButton(
+internal fun FilterButton(
     modifier: Modifier = Modifier,
-    inBookmark: Boolean = false,
-    onButtonClickListener: () -> Unit
+    onButtonClickListener: () -> Unit = {}
 ) {
     Box(
         modifier = modifier
-            .clip(RoundedCornerShape(20.dp))
-            .background(CoursesTheme.colors.glass)
+            .clip(RoundedCornerShape(28.dp))
+            .background(CoursesTheme.colors.darkGrey)
             .clickable { onButtonClickListener() }) {
-        when (inBookmark) {
-            true -> {
-                Image(
-                    modifier = Modifier.padding(6.dp),
-                    painter = painterResource(R.drawable.bookmark_fill),
-                    contentDescription = null
-                )
-            }
-            false -> {
-                Image(
-                    modifier = Modifier.padding(6.dp),
-                    painter = painterResource(R.drawable.bookmark),
-                    contentDescription = null
-                )
-            }
-        }
+        Image(
+            modifier = Modifier.padding(16.dp),
+            painter = painterResource(R.drawable.funnel),
+            contentDescription = null
+        )
+
 
     }
 }
 
 @Preview
 @Composable
-private fun BookmarkButtonPreview() {
-    BookmarkButton {}
+private fun FilterButtonPreview() {
+    FilterButton()
 }

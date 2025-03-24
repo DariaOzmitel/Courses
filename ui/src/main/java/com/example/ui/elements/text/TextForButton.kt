@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.TextUnit
 import com.example.ui.theme.CoursesTheme
 
 @Composable
-internal fun TextButton(
+internal fun TextForButton(
     modifier: Modifier = Modifier,
     text: String,
     color: Color = Color.Unspecified,
