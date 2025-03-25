@@ -35,7 +35,8 @@ import com.example.ui.theme.CoursesTheme
 @Composable
 internal fun CourseCard(
     modifier: Modifier = Modifier,
-    course: CourseUi
+    course: CourseUi,
+    onBookmarkButtonClickListener: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -68,7 +69,7 @@ internal fun CourseCard(
                         .fillMaxWidth()
                         .padding(top = 8.dp),
                     horizontalArrangement = Arrangement.End
-                ) { BookmarkButton {} }
+                ) { BookmarkButton(inBookmark = course.hasLike) { onBookmarkButtonClickListener() } }
                 Row(modifier = Modifier.padding(bottom = 8.dp)) {
                     RateInfo(modifier = Modifier.padding(end = 4.dp), rate = course.rate)
                     DataInfo(data = course.publishDate)
@@ -125,7 +126,7 @@ internal fun CourseCard(
 @Preview
 @Composable
 private fun CourseCardPreview() {
-    CourseCard(course = mockCourseUi)
+    CourseCard(course = mockCourseUi, onBookmarkButtonClickListener = {})
 }
 
 private const val TEXT_MAX_LINES = 2

@@ -50,7 +50,8 @@ fun MainScreen(
                 modifier = modifier,
                 innerPadding = innerPadding,
                 courseList = state.coursesList,
-                onSortButtonClickListener = {viewModel.sortListByPublishingDate()}
+                onSortButtonClickListener = { viewModel.sortListByPublishingDate() },
+                onBookmarkButtonClickListener = { viewModel.changeFavoriteStatus(it) }
             )
         }
     }
@@ -61,7 +62,8 @@ private fun MainScreenContent(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
     courseList: List<CourseUi>,
-    onSortButtonClickListener: () -> Unit
+    onSortButtonClickListener: () -> Unit,
+    onBookmarkButtonClickListener: (Int) -> Unit,
 ) {
     var displayText by rememberSaveable {
         mutableStateOf("")
@@ -110,7 +112,11 @@ private fun MainScreenContent(
             }
         }
         items(courseList) {
-            CourseCard(modifier = Modifier.padding(bottom = 16.dp), course = it)
+            CourseCard(
+                modifier = Modifier.padding(bottom = 16.dp),
+                course = it,
+                onBookmarkButtonClickListener = { onBookmarkButtonClickListener(it.id) }
+            )
         }
     }
 }
@@ -121,6 +127,7 @@ fun MainScreenContentPreview() {
     MainScreenContent(
         innerPadding = PaddingValues(top = 40.dp),
         courseList = mockCourseUiList,
-        onSortButtonClickListener = {}
+        onSortButtonClickListener = {},
+        onBookmarkButtonClickListener = {}
     )
 }

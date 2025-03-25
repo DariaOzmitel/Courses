@@ -5,13 +5,16 @@ import com.example.domain.models.Course
 
 internal class DataDomainMapper {
 
-    fun mapCoursesDtoListToEntityList(dtoList: List<CourseDto>): List<Course> {
+    fun mapCoursesDtoListToEntityList(
+        dtoList: List<CourseDto>,
+        favoriteCoursesId: List<Int>? = emptyList()
+    ): List<Course> {
         return dtoList.map {
-            mapCourseDtoToEntity(it)
+            mapCourseDtoToEntity(it,favoriteCoursesId)
         }
     }
 
-    private fun mapCourseDtoToEntity(dto: CourseDto) =
+    private fun mapCourseDtoToEntity(dto: CourseDto, favoriteCoursesId: List<Int>? = null) =
         dto.run {
             Course(
                 id = id,
@@ -20,7 +23,7 @@ internal class DataDomainMapper {
                 price = price,
                 rate = rate,
                 startDate = startDate,
-                hasLike = hasLike,
+                hasLike = favoriteCoursesId?.contains(id) ?: false,
                 publishDate = publishDate
             )
         }

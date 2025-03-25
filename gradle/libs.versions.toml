@@ -9,6 +9,7 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2025.03.00"
 appcompat = "1.7.0"
+roomCompiler = "2.6.1"
 uiGraphicsAndroid = "1.7.8"
 runtimeAndroid = "1.7.8"
 uiTextAndroid = "1.7.8"
@@ -18,9 +19,11 @@ uiTooling = "1.7.8"
 retrofit = "2.9.0"
 converterGson = "2.9.0"
 koinCore = "3.5.6"
+roomKtx = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -46,10 +49,10 @@ converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinCore" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinCore" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-

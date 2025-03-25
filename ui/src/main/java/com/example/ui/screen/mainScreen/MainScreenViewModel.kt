@@ -2,6 +2,7 @@ package com.example.ui.screen.mainScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.usecase.ChangeFavoriteStatusUseCase
 import com.example.domain.usecase.GetCoursesListFlowUseCase
 import com.example.domain.usecase.SortListByPublishingDateUseCase
 import com.example.ui.mapper.DomainUiMapper
@@ -13,6 +14,7 @@ import kotlinx.coroutines.launch
 internal class MainScreenViewModel(
     private val getCoursesListFlowUseCase: GetCoursesListFlowUseCase,
     private val sortListByPublishingDateUseCase: SortListByPublishingDateUseCase,
+    private val changeFavoriteStatusUseCase: ChangeFavoriteStatusUseCase,
     private val mapper: DomainUiMapper
 ) : ViewModel() {
     private val mainStateMutable =
@@ -29,6 +31,12 @@ internal class MainScreenViewModel(
 
     fun sortListByPublishingDate() {
         sortListByPublishingDateUseCase.invoke()
+    }
+
+    fun changeFavoriteStatus(courseId: Int) {
+        viewModelScope.launch {
+            changeFavoriteStatusUseCase.invoke(courseId)
+        }
     }
 
     private fun getCoursesList() {
