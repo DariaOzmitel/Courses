@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
@@ -54,11 +54,13 @@ internal fun CourseCard(
                     .clip(RoundedCornerShape(12.dp)),
                 painter = painterResource(R.drawable.courses_image),
                 contentScale = ContentScale.Crop,
-                alignment = Alignment.TopCenter,
+                alignment = BiasAlignment(0f, -0.8f),
                 contentDescription = "",
             )
             Column(
-                modifier = Modifier.padding(start = 8.dp, end = 8.dp).height(114.dp),
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 8.dp)
+                    .height(114.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Row(

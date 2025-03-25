@@ -3,7 +3,7 @@ package com.example.data.mapper
 import com.example.data.network.models.CourseDto
 import com.example.domain.models.Course
 
-internal class CoursesMapper {
+internal class DataDomainMapper {
 
     fun mapCoursesDtoListToEntityList(dtoList: List<CourseDto>): List<Course> {
         return dtoList.map {

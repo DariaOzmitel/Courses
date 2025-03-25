@@ -1,6 +1,6 @@
 package com.example.data.di
 
-import com.example.data.mapper.CoursesMapper
+import com.example.data.mapper.DataDomainMapper
 import com.example.data.network.ApiFactory
 import com.example.data.network.ApiService
 import com.example.data.repository.CoursesRepositoryImpl
@@ -11,6 +11,6 @@ import org.koin.dsl.module
 
 val dataModule = module {
     singleOf(::CoursesRepositoryImpl) bind CoursesRepository::class
-    singleOf(::CoursesMapper)
+    singleOf(::DataDomainMapper)
     single<ApiService> { ApiFactory.apiService }
 }

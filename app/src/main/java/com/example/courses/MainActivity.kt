@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.graphics.Color
-import com.example.ui.screen.MainScreen
+import com.example.ui.screen.mainScreen.MainScreen
 import com.example.ui.theme.CoursesTheme
 
 class MainActivity : ComponentActivity() {

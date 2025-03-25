@@ -5,4 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CoursesRepository {
     fun getCoursesListFlow(): Flow<List<Course>>
+    fun sortListByPublishingDate()
 }

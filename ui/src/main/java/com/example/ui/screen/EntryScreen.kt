@@ -14,13 +14,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.ui.R
-import com.example.ui.elements.CoursesTextField
 import com.example.ui.elements.button.ButtonClassmates
 import com.example.ui.elements.button.ButtonVk
 import com.example.ui.elements.button.GreenButton
 import com.example.ui.elements.text.TextButtonSmall
 import com.example.ui.elements.text.TextHeadline
 import com.example.ui.elements.text.TextTitleMedium
+import com.example.ui.elements.textField.CoursesTextField
 import com.example.ui.theme.CoursesTheme
 
 @Composable

@@ -1,4 +1,4 @@
-package com.example.ui.elements
+package com.example.ui.elements.textField
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
