@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.graphics.Color
-import com.example.ui.screen.favoriteScreen.FavoriteScreen
+import com.example.ui.navigation.InstallAppNavGraph
 import com.example.ui.theme.CoursesTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,11 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CoursesTheme {
-                Scaffold(containerColor = Color.Black) { innerPadding ->
-                    FavoriteScreen(
-                        innerPadding = innerPadding
-                    )
-                }
+                InstallAppNavGraph()
             }
         }
     }

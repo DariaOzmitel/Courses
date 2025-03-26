@@ -24,7 +24,8 @@ import com.example.ui.theme.CoursesTheme
 @Composable
 fun OnboardingScreen(
     modifier: Modifier = Modifier,
-    innerPadding: PaddingValues
+    innerPadding: PaddingValues,
+    onButtonClickListener: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -54,7 +55,12 @@ fun OnboardingScreen(
             }
         }
         Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Bottom) {
-            GreenButton(modifier = Modifier.padding(bottom = 16.dp), text = stringResource(R.string.resume))
+            GreenButton(
+                modifier = Modifier.padding(bottom = 16.dp),
+                text = stringResource(R.string.resume)
+            ) {
+                onButtonClickListener()
+            }
         }
     }
 }
@@ -62,7 +68,7 @@ fun OnboardingScreen(
 @Preview
 @Composable
 private fun OnboardingScreenPreview() {
-    OnboardingScreen(innerPadding = PaddingValues(top = 40.dp))
+    OnboardingScreen(innerPadding = PaddingValues(top = 40.dp)) {}
 }
 
 private const val INITIAL_FIRST_VISIBLE_ITEM_SCROLL_OFFSET = 500

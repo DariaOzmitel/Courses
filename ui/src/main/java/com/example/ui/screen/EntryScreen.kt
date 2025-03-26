@@ -26,9 +26,12 @@ import com.example.ui.theme.CoursesTheme
 @Composable
 fun EntryScreen(
     modifier: Modifier = Modifier,
-    innerPadding: PaddingValues
+    innerPadding: PaddingValues,
+    onEntryButtonClickListener: () -> Unit
 ) {
-    EntryScreenContent(modifier = modifier, innerPadding = innerPadding, displayText = "")
+    EntryScreenContent(modifier = modifier, innerPadding = innerPadding, displayText = "") {
+        onEntryButtonClickListener()
+    }
 }
 
 @Composable
@@ -36,6 +39,7 @@ fun EntryScreenContent(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
     displayText: String,
+    onEntryButtonClickListener: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -75,7 +79,9 @@ fun EntryScreenContent(
         GreenButton(
             modifier = Modifier.padding(bottom = 16.dp),
             text = stringResource(R.string.entry)
-        )
+        ) {
+            onEntryButtonClickListener()
+        }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -104,11 +110,13 @@ fun EntryScreenContent(
             )
         }
         HorizontalDivider(
-            modifier = Modifier.fillMaxWidth().padding(bottom = 32.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 32.dp),
             color = CoursesTheme.colors.stroke,
             thickness = 1.dp
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)){
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             ButtonVk(modifier = Modifier.weight(1f))
             ButtonClassmates(modifier = Modifier.weight(1f))
         }
@@ -118,5 +126,5 @@ fun EntryScreenContent(
 @Preview
 @Composable
 private fun EntryScreenPreview() {
-    EntryScreen(innerPadding = PaddingValues(top = 40.dp))
+    EntryScreen(innerPadding = PaddingValues(top = 40.dp)) {}
 }

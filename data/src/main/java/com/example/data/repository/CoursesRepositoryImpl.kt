@@ -53,7 +53,6 @@ internal class CoursesRepositoryImpl(
             }
         }
 
-
     override fun sortListByPublishingDate() {
         val currentList = coursesList.replayCache.firstOrNull().orEmpty()
         coursesList.tryEmit(currentList.sortedByDescending { it.publishDate })
