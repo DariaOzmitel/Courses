@@ -14,4 +14,7 @@
     <string name="more">Подробнее</string>
     <string name="search_text_field_hint">Search courses…</string>
     <string name="for_data_publishing">По дате добавления</string>
+    <string name="favorite">Избранное</string>
+    <string name="main">Главная</string>
+    <string name="account">Аккаунт</string>
 </resources>

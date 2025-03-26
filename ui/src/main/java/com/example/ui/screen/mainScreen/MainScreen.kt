@@ -123,7 +123,7 @@ private fun MainScreenContent(
 
 @Preview
 @Composable
-fun MainScreenContentPreview() {
+private fun MainScreenContentPreview() {
     MainScreenContent(
         innerPadding = PaddingValues(top = 40.dp),
         courseList = mockCourseUiList,

@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.graphics.Color
-import com.example.ui.screen.mainScreen.MainScreen
+import com.example.ui.screen.favoriteScreen.FavoriteScreen
 import com.example.ui.theme.CoursesTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoursesTheme {
                 Scaffold(containerColor = Color.Black) { innerPadding ->
-                    MainScreen(
+                    FavoriteScreen(
                         innerPadding = innerPadding
                     )
                 }
