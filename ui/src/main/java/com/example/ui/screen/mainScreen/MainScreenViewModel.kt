@@ -2,9 +2,9 @@ package com.example.ui.screen.mainScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.usecase.ChangeFavoriteStatusUseCase
-import com.example.domain.usecase.GetCoursesListFlowUseCase
-import com.example.domain.usecase.SortListByPublishingDateUseCase
+import com.example.domain.usecase.coursesRepository.ChangeFavoriteStatusUseCase
+import com.example.domain.usecase.coursesRepository.GetCoursesListFlowUseCase
+import com.example.domain.usecase.coursesRepository.SortListByPublishingDateUseCase
 import com.example.ui.mapper.DomainUiMapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

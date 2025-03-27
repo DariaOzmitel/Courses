@@ -1,4 +1,4 @@
-package com.example.domain.usecase
+package com.example.domain.usecase.coursesRepository
 
 import com.example.domain.repository.CoursesRepository
 

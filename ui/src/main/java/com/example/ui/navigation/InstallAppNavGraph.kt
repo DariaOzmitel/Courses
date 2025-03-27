@@ -6,6 +6,7 @@ import com.example.ui.screen.EntryScreen
 import com.example.ui.screen.OnboardingScreen
 import com.example.ui.screen.favoriteScreen.FavoriteScreen
 import com.example.ui.screen.mainScreen.MainScreen
+import com.example.ui.screen.splash.SplashScreen
 
 @Composable
 fun InstallAppNavGraph() {
@@ -13,6 +14,23 @@ fun InstallAppNavGraph() {
     AppNavGraph(
         navHostController = navigationState.navHostController,
         navigationState = navigationState,
+        splashScreenContent = {
+            SplashScreen { entryStatus ->
+                when (entryStatus) {
+                    true -> navigationState.navigateTo(
+                        route = Screen.Onboarding.route,
+                        inclusive = true,
+                        popUpToScreen = Screen.Splash.route
+                    )
+
+                    false -> navigationState.navigateTo(
+                        route = Screen.Entry.route,
+                        inclusive = true,
+                        popUpToScreen = Screen.Splash.route
+                    )
+                }
+            }
+        },
         onboardingScreenContent = { innerPadding ->
             OnboardingScreen(innerPadding = innerPadding) {
                 navigationState.navigateTo(Screen.Entry.route)

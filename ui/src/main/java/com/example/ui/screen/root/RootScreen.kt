@@ -22,6 +22,7 @@ internal fun RootScreen(
 
     val showBottomBar =
         currentRoute != Screen.Onboarding.route && currentRoute != Screen.Entry.route
+                && currentRoute != Screen.Splash.route
     Scaffold(modifier = modifier, containerColor = CoursesTheme.colors.dark,
         bottomBar = {
             if (showBottomBar) {

@@ -10,7 +10,7 @@ internal class DataDomainMapper {
         favoriteCoursesId: List<Int>? = emptyList()
     ): List<Course> {
         return dtoList.map {
-            mapCourseDtoToEntity(it,favoriteCoursesId)
+            mapCourseDtoToEntity(it, favoriteCoursesId)
         }
     }
 

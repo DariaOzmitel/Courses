@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.koin.core)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.androidx.datastore.preferences)
     ksp(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

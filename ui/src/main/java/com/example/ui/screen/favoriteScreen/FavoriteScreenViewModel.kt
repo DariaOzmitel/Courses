@@ -2,8 +2,8 @@ package com.example.ui.screen.favoriteScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.usecase.ChangeFavoriteStatusUseCase
-import com.example.domain.usecase.GetFavoriteCoursesListFlowUseCase
+import com.example.domain.usecase.coursesRepository.ChangeFavoriteStatusUseCase
+import com.example.domain.usecase.coursesRepository.GetFavoriteCoursesListFlowUseCase
 import com.example.ui.mapper.DomainUiMapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

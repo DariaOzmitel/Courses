@@ -11,6 +11,7 @@ import com.example.ui.screen.root.RootScreen
 internal fun AppNavGraph(
     navHostController: NavHostController,
     navigationState: NavigationState,
+    splashScreenContent: @Composable () -> Unit,
     onboardingScreenContent: @Composable (PaddingValues) -> Unit,
     entryScreenContent: @Composable (PaddingValues) -> Unit,
     mainScreenContent: @Composable (PaddingValues) -> Unit,
@@ -20,8 +21,11 @@ internal fun AppNavGraph(
     RootScreen(navigationState = navigationState) { innerPadding ->
         NavHost(
             navController = navHostController,
-            startDestination = Screen.Onboarding.route
+            startDestination = Screen.Splash.route
         ) {
+            composable(Screen.Splash.route) {
+                splashScreenContent()
+            }
             composable(Screen.Onboarding.route) {
                 onboardingScreenContent(innerPadding)
             }
