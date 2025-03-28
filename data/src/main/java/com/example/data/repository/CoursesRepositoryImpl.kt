@@ -40,9 +40,16 @@ internal class CoursesRepositoryImpl(
             responseFlow,
             favoriteCoursesList
         ) { coursesDto, favoriteCourses ->
-            mapper.mapCoursesDtoListToEntityList(coursesDto, favoriteCourses)
-        }.onEach { coursesList.emit(it) }
-            .launchIn(CoroutineScope(Dispatchers.IO))
+            val mappedCourses = mapper.mapCoursesDtoListToEntityList(coursesDto, favoriteCourses)
+
+            if (shouldSortByPublishingDate) {
+                mappedCourses.sortedByDescending { it.publishDate }
+            } else {
+                mappedCourses
+            }
+        }.onEach { courses ->
+            coursesList.emit(courses)
+        }.launchIn(CoroutineScope(Dispatchers.IO))
         return coursesList
     }
 
@@ -54,6 +61,7 @@ internal class CoursesRepositoryImpl(
         }
 
     override fun sortListByPublishingDate() {
+        shouldSortByPublishingDate = true
         val currentList = coursesList.replayCache.firstOrNull().orEmpty()
         coursesList.tryEmit(currentList.sortedByDescending { it.publishDate })
     }
@@ -72,6 +80,7 @@ internal class CoursesRepositoryImpl(
     }
 
     private val coursesList = MutableSharedFlow<List<Course>>(replay = 1)
+    private var shouldSortByPublishingDate = false
 
     private fun getFavoriteCoursesListFromDb(): Flow<List<Int>> =
         favoriteCoursesDao.getFavoriteCoursesList().map { coursesDbModelList ->

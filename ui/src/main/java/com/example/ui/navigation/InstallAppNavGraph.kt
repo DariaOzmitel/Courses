@@ -33,12 +33,20 @@ fun InstallAppNavGraph() {
         },
         onboardingScreenContent = { innerPadding ->
             OnboardingScreen(innerPadding = innerPadding) {
-                navigationState.navigateTo(Screen.Entry.route)
+                navigationState.navigateTo(
+                    route = Screen.Entry.route,
+                    inclusive = true,
+                    popUpToScreen = Screen.Onboarding.route
+                )
             }
         },
         entryScreenContent = { innerPadding ->
             EntryScreen(innerPadding = innerPadding) {
-                navigationState.navigateTo(Screen.Main.route)
+                navigationState.navigateTo(
+                    route = Screen.Main.route,
+                    inclusive = true,
+                    popUpToScreen = Screen.Entry.route
+                )
             }
         },
         mainScreenContent = { innerPadding ->
