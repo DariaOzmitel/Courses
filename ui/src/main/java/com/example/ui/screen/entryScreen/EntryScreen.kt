@@ -1,4 +1,4 @@
-package com.example.ui.screen
+package com.example.ui.screen.entryScreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.R
 import com.example.ui.elements.button.ButtonClassmates
 import com.example.ui.elements.button.ButtonVk
@@ -22,6 +24,7 @@ import com.example.ui.elements.text.TextHeadline
 import com.example.ui.elements.text.TextTitleMedium
 import com.example.ui.elements.textField.CoursesTextField
 import com.example.ui.theme.CoursesTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun EntryScreen(
@@ -29,7 +32,21 @@ fun EntryScreen(
     innerPadding: PaddingValues,
     onEntryButtonClickListener: () -> Unit
 ) {
-    EntryScreenContent(modifier = modifier, innerPadding = innerPadding, displayText = "") {
+    val viewModel: EntryScreenViewModel = koinViewModel()
+    val entryState by viewModel.getEntryState().collectAsStateWithLifecycle()
+
+    EntryScreenContent(
+        modifier = modifier,
+        innerPadding = innerPadding,
+        mail = entryState.mail,
+        password = entryState.password,
+        areFieldsCorrect = entryState.areFieldsCorrect,
+        onPasswordChange = {
+            viewModel.updatePassword(it)
+        },
+        onMailChange = {
+            viewModel.updateMail(it)
+        }) {
         onEntryButtonClickListener()
     }
 }
@@ -38,7 +55,11 @@ fun EntryScreen(
 fun EntryScreenContent(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
-    displayText: String,
+    mail: String,
+    password: String,
+    areFieldsCorrect: Boolean,
+    onMailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
     onEntryButtonClickListener: () -> Unit
 ) {
     Column(
@@ -64,8 +85,8 @@ fun EntryScreenContent(
         CoursesTextField(
             modifier = Modifier.padding(bottom = 16.dp),
             hintText = stringResource(R.string.email_example),
-            displayText = displayText
-        ) {}
+            displayText = mail
+        ) { onMailChange(it) }
         TextTitleMedium(
             modifier = Modifier.padding(bottom = 8.dp),
             text = stringResource(R.string.password),
@@ -74,10 +95,11 @@ fun EntryScreenContent(
         CoursesTextField(
             modifier = Modifier.padding(bottom = 24.dp),
             hintText = stringResource(R.string.password_hint),
-            displayText = displayText
-        ) {}
+            displayText = password
+        ) { onPasswordChange(it) }
         GreenButton(
             modifier = Modifier.padding(bottom = 16.dp),
+            enabled = areFieldsCorrect,
             text = stringResource(R.string.entry)
         ) {
             onEntryButtonClickListener()

@@ -29,6 +29,8 @@ internal fun GreenButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = CoursesTheme.colors.green,
             contentColor = CoursesTheme.colors.white,
+            disabledContentColor = CoursesTheme.colors.white.copy(alpha = 0.1f),
+            disabledContainerColor = CoursesTheme.colors.green.copy(alpha = 0.1f),
         ),
         contentPadding = PaddingValues(vertical = 16.dp)
     ) {

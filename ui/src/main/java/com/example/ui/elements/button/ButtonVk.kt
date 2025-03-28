@@ -1,5 +1,7 @@
 package com.example.ui.elements.button
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,6 +12,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,10 +23,14 @@ import com.example.ui.theme.CoursesTheme
 internal fun ButtonVk(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onClick: () -> Unit = {},
 ) {
+    val context = LocalContext.current
+    val url = VK_URL
     Button(
-        onClick = onClick, modifier = modifier
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            context.startActivity(intent)
+        }, modifier = modifier
             .fillMaxWidth()
             .background(
                 color = CoursesTheme.colors.vkColor,
@@ -39,6 +46,8 @@ internal fun ButtonVk(
         Image(painter = painterResource(id = R.drawable.vk), contentDescription = "")
     }
 }
+
+private const val VK_URL = "https://vk.com/"
 
 @Preview
 @Composable

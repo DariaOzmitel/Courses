@@ -2,8 +2,8 @@ package com.example.ui.navigation
 
 import androidx.compose.runtime.Composable
 import com.example.ui.screen.AccountScreen
-import com.example.ui.screen.EntryScreen
 import com.example.ui.screen.OnboardingScreen
+import com.example.ui.screen.entryScreen.EntryScreen
 import com.example.ui.screen.favoriteScreen.FavoriteScreen
 import com.example.ui.screen.mainScreen.MainScreen
 import com.example.ui.screen.splash.SplashScreen
