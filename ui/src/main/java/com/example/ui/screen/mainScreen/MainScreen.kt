@@ -33,7 +33,7 @@ import com.example.ui.theme.CoursesTheme
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MainScreen(
+internal fun MainScreen(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues
 ) {

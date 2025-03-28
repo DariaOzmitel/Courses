@@ -26,7 +26,7 @@ internal class SplashScreenViewModel(
         viewModelScope.launch {
             val entryStatus = checkEntryUseCase.invoke()
             isEntryFirstMutable.value = !entryStatus
-            if (entryStatus) {
+            if (!entryStatus) {
                 setFirstEntryFlagUseCase()
             }
         }

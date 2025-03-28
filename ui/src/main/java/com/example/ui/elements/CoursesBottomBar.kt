@@ -67,7 +67,7 @@ internal fun CoursesBottomBar(
 
 @Preview
 @Composable
-internal fun CoursesBottomBarPreview() {
+private fun CoursesBottomBarPreview() {
     CoursesBottomBar(
         navBackStackEntry = rememberNavigationState().navHostController.currentBackStackEntry,
         navigationState = NavigationState(rememberNavigationState().navHostController)

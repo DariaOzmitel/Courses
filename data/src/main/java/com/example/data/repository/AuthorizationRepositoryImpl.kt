@@ -10,7 +10,7 @@ import com.example.domain.repository.AuthorizationRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
-class AuthorizationRepositoryImpl(
+internal class AuthorizationRepositoryImpl(
     private val context: Context
 ) : AuthorizationRepository {
     override suspend fun setFirstEntryFlag() {

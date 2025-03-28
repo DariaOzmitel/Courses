@@ -31,8 +31,6 @@ internal fun FilterButton(
             painter = painterResource(R.drawable.funnel),
             contentDescription = null
         )
-
-
     }
 }
 

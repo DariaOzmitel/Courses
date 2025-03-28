@@ -27,7 +27,7 @@ import com.example.ui.theme.CoursesTheme
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun EntryScreen(
+internal fun EntryScreen(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
     onEntryButtonClickListener: () -> Unit
@@ -52,7 +52,7 @@ fun EntryScreen(
 }
 
 @Composable
-fun EntryScreenContent(
+private fun EntryScreenContent(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
     mail: String,

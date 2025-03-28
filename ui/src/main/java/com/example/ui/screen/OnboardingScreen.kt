@@ -23,7 +23,7 @@ import com.example.ui.ignoreHorizontalParentPadding
 import com.example.ui.theme.CoursesTheme
 
 @Composable
-fun OnboardingScreen(
+internal fun OnboardingScreen(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
     onButtonClickListener: () -> Unit
